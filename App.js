@@ -12,7 +12,7 @@ export default function App()
         
         <View style={{ alignSelf: "center" }}>
           <View style={styles.profileImage}>
-            <Image source={require("./assets/icon.png")} style={styles.image} resizeMode="center"></Image>
+            <Image source={require("./assets/adaptive-icon.png")} style={styles.image} resizeMode="center"></Image>
           </View>
         </View>
 
@@ -69,7 +69,7 @@ const styles = StyleSheet.create(
   container: 
   {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: "dodgerblue",
     alignItems: 'center',
     justifyContent: 'center',
   },
