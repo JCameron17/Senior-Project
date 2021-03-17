@@ -4,7 +4,7 @@ import { StyleSheet,Component, Text,TouchableWithoutFeedback, View,Image,SafeAre
 function HomeScreen({navigation}) 
 {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={styles.container}>
         <Text>Home Screen</Text>
         <Button>
           title = "Go to UserProfileScreen"
@@ -12,4 +12,15 @@ function HomeScreen({navigation})
         </Button>
       </View>
     );
-  }
+}
+
+const styles = StyleSheet.create({
+    container:
+    {
+        flex: 1, 
+        alignItems: 'center', 
+        justifyContent: 'center'
+    }
+})
+
+export default HomesScreen;
