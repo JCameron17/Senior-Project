@@ -6,8 +6,19 @@ import { StyleSheet,Component, Text,TouchableWithoutFeedback, View,Image,SafeAre
 function UserProfileScreen() 
 {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={styles.container}>
         <Text>UserProfleScreen</Text>
       </View>
     );
-  }
+}
+
+const styles = StyleSheet.create({
+    container:
+    {
+        flex: 1, 
+        alignItems: 'center', 
+        justifyContent: 'center'
+    }
+})
+
+export default UserProfileScreen;
