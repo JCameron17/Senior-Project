@@ -13,12 +13,50 @@ import UserProfileScreen from './screens/UserProfile';
 
 
 
+
 const HomeStack = createStackNavigator();
 const UserProfileStack = createStackNavigator();
-const HomeStackScreen = createStackNavigator();
-
-
 const Drawer = createDrawerNavigator();
+
+const HomeStackScreen = ({navigation}) =>(
+  <HomeStack.Navigator screenOptions=
+  {
+    {
+      headerStlye:
+      {
+        backgrounColor: 'green'
+      },
+      headerTintColor:'white',
+      headerTitleStyle:
+      {
+        fontWeight:'bold'
+      }
+    }
+  }>
+    <HomeStack.Screen name="Home" component={HomeScreen} options={}/>
+  </HomeStack.Navigator>
+)
+
+
+const UserProfileStackScreen = ({navigation}) =>(
+  <UserProfileStack.Navigator screenOptions=
+  {
+    {
+      headerStlye:
+      {
+        backgrounColor: 'green'
+      },
+      headerTintColor:'white',
+      headerTitleStyle:
+      {
+        fontWeight:'bold'
+      }
+    }
+  }>
+    <UserProfileStack.Screen name="UserProfile" component={UserProfileScreen} options={}/>
+  </UserProfileStack.Navigator>
+)
+
 
 
 function App() {
@@ -37,20 +75,4 @@ function App() {
 export default App;
 
 
- /*<Stack.Navigator screenOptions=
-      {
-        {
-          headerStlye:
-          {
-            backgrounColor: 'green'
-          },
-          headerTintColor:'white',
-          headerTitleStyle:
-          {
-            fontWeight:'bold'
-          }
-        }
-      }>
-        <Stack.Screen name="Home" component={HomeScreen} options={}/>
-        <Stack.Screen name="UserProfile" component={UserProfileScreen} />
-      </Stack.Navigator> */
+ /* */
