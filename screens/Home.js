@@ -6,10 +6,6 @@ function HomeScreen({navigation})
     return (
       <View style={styles.container}>
         <Text>HomeScreen</Text>
-        <Button>
-          title = "Go to UserProfileScreen"
-          onPress= {() =>navigation.navigate("UserProflie")}
-        </Button>
       </View>
     );
 }

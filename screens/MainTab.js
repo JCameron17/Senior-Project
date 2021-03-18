@@ -27,7 +27,7 @@ const MainTabScreen = () =>{
             options={{
               tabBarLabel: 'Home',
               tabBarIcon: ({ color }) => (
-                <Icons name="ios-home" color={color} size={26} />
+                <Icon name="ios-home" color={color} size={26} />
               ),
             }}
           />
@@ -37,7 +37,7 @@ const MainTabScreen = () =>{
             options={{
               tabBarLabel: 'Updates',
               tabBarIcon: ({ color }) => (
-                <Icons name="ios-notifications" color={color} size={26} />
+                <Icon name="ios-notifications" color={color} size={26} />
               ),
             }}
           />
@@ -47,7 +47,7 @@ const MainTabScreen = () =>{
             options={{
               tabBarLabel: 'Profile',
               tabBarIcon: ({ color }) => (
-                <Icons name="ios-person" color={color} size={26} />
+                <Icon name="ios-person" color={color} size={26} />
               ),
             }}
           />
@@ -57,7 +57,7 @@ const MainTabScreen = () =>{
             options={{
               tabBarLabel: 'Explore',
               tabBarIcon: ({ color }) => (
-                <Icons name="ios-aperture" color={color} size={26} />
+                <Icon name="ios-aperture" color={color} size={26} />
               ),
             }}
           />
