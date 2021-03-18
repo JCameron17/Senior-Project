@@ -8,10 +8,12 @@ import HomeScreen from './Home';
 import UserProfileScreen from './UserProfile';
 import ExploreScreen from './Explore';
 import NotificationsScreen from './Notifications';
+import MessagesScreen from './Messages';
 
 const HomeStack = createStackNavigator();
 const UserProfileStack = createStackNavigator();
 const NotificationsStack = createStackNavigator();
+const MessagesStack = createStackNavigator();
 const ExploreStack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
@@ -46,13 +48,13 @@ const MainTabScreen = () =>{
             }}
           />
           <Tab.Screen
-            name="Notifications"
-            component={NotificationsStackScreen}
+            name="Messages"
+            component={MessagesStackScreen}
             options={{
-              tabBarLabel: 'Notifications',
+              tabBarLabel: 'Messages',
               tabBarColor: 'green',
               tabBarIcon: ({ color }) => (
-                <Icon name="ios-notifications" color={color} size={26} />
+                <Icon name="ios-chatbubbles" color={color} size={26} />
               ),
             }}
           />
@@ -127,7 +129,34 @@ const ExploreStackScreen = ({navigation}) =>(
   </ExploreStack.Navigator>
 )
 
-
+const MessagesStackScreen = ({navigation}) =>(
+  <MessagesStack.Navigator screenOptions=
+  {
+    {
+      headerStyle:
+      {
+        backgroundColor: 'green'
+      },
+      headerTintColor:'white',
+      headerTitleStyle:
+      {
+        fontWeight:'bold'
+      }
+    }
+  }>
+    <MessagesStack.Screen name="Messages" component={MessagesScreen} options={
+      {
+        title: 'Messages',
+        headerLeft:() => 
+        (
+          <Icon.Button name = 'ios-menu' size ={25} backgrounColor = {'green'} onPress = {() => navigation.openDrawer()} ></Icon.Button>
+        )
+      }
+    }/>
+  
+  </MessagesStack.Navigator>
+)
+/*
 const NotificationsStackScreen = ({navigation}) =>(
   <NotificationsStack.Navigator screenOptions=
   {
@@ -154,7 +183,7 @@ const NotificationsStackScreen = ({navigation}) =>(
     }/>
   
   </NotificationsStack.Navigator>
-)
+) */
 
 const UserProfileStackScreen = ({navigation}) =>(
   <UserProfileStack.Navigator screenOptions=

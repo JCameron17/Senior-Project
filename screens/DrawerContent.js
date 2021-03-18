@@ -14,10 +14,60 @@ export function DrawerContent(props)
             <DrawerContentScrollView {...props}>
                 <View style = {styles.drawerContent}>
                     <View style = {styles.userInfoSection}>
-                         <View>
-                            <Avatar.Image size={24} source={require('../assets/profile.png')} />
+                         <View style= {{flexDirection:'row',marginTop:15}}>
+                            <Avatar.Image size={50} source={require('../assets/greentea.jpeg')} />
+                            <View style= {{marginLeft:15,flexDirection:'column'}}>
+                                <Title style={styles.title}>Tony Grey</Title>
+                                <Caption style={styles.caption}>@lmktonyg</Caption>
+                            </View>
                          </View>
                     </View>
+                    <Drawer.Section stlye ={styles.drawerSection}>
+                        <DrawerItem
+                            icon = {({color,size}) =>
+                                <Icon
+                                name = "home-outline"
+                                color = {color}
+                                size = {size}
+                                />
+                            }
+                            label = "Home"
+                            onPress={() =>{}}
+                        />
+                        <DrawerItem
+                            icon = {({color,size}) =>
+                                <Icon
+                                name = "account-outline"
+                                color = {color}
+                                size = {size}
+                                />
+                            }
+                            label = "Profile"
+                            onPress={() =>{}}
+                        />
+                        <DrawerItem
+                            icon = {({color,size}) =>
+                                <Icon
+                                name = "notifications-outline"
+                                color = {color}
+                                size = {size}
+                                />
+                            }
+                            label = "Notifications"
+                            onPress={() =>{}}
+                        />
+                        <DrawerItem
+                            icon = {({color,size}) =>
+                                <Icon
+                                name = "cog-outline"
+                                color = {color}
+                                size = {size}
+                                />
+                            }
+                            label = "Settings"
+                            onPress={() =>{}}
+                        />
+                    </Drawer.Section>
                 </View>
             </DrawerContentScrollView>
 
