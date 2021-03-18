@@ -5,15 +5,19 @@ import { StyleSheet,Component, Text,TouchableWithoutFeedback, View,Image,SafeAre
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
+
 import MainTabScreen from './screens/MainTab';
 
 const Drawer = createDrawerNavigator();
 function App() {
   return (
-
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home">
         <Drawer.Screen name="Home" component={MainTabScreen} />
+        <Drawer.Screen name="UserProfile" component={MainTabScreen} />
+        <Drawer.Screen name="Notifications" component={MainTabScreen} />
+        <Drawer.Screen name="Explore" component={MainTabScreen} />
+        <Drawer.Screen name="Settings" component={MainTabScreen} />
       </Drawer.Navigator>
    </NavigationContainer> 
   );

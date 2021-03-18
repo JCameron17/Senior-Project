@@ -2,11 +2,11 @@ import React from 'react';
 import { StyleSheet,Component, Text,TouchableWithoutFeedback, View,Image,SafeAreaView, Button, ScrollView } from 'react-native';
 
 
-function NotificationsScreen({navigation}) 
+function NotificationsScreen() 
 {
     return (
       <View style={styles.container}>
-        <Text>NotificationsScreen</Text>
+        <Text>Notifications Screen</Text>
       </View>
     );
 }

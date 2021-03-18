@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet,Component, Text,TouchableWithoutFeedback, View,Image,SafeAreaView, Button, ScrollView } from 'react-native';
 
-function HomeScreen({navigation}) 
+function HomeScreen() 
 {
     return (
       <View style={styles.container}>
-        <Text>HomeScreen</Text>
+        <Text>Home Screen</Text>
       </View>
     );
 }

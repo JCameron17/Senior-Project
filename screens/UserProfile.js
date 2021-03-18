@@ -6,7 +6,7 @@ function UserProfileScreen()
 {
     return (
       <View style={styles.container}>
-        <Text>UserProfleScreen</Text>
+        <Text>UserProfile Screen</Text>
       </View>
     );
 }

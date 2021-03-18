@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet,Component, Text,TouchableWithoutFeedback, View,Image,SafeAreaView, Button, ScrollView } from 'react-native';
 
 
-function SettingsScreen({navigation}) 
+function SettingsScreen() 
 {
     return (
       <View style={styles.container}>
