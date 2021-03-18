@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import HomeScreen from './Home';
 import UserProfileScreen from './UserProfile';
@@ -23,11 +23,11 @@ const MainTabScreen = () =>{
         >
           <Tab.Screen
             name="Home"
-            component={HomeScreen}
+            component={HomeStackScreen}
             options={{
               tabBarLabel: 'Home',
               tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons name="home" color={color} size={26} />
+                <Icons name="ios-home" color={color} size={26} />
               ),
             }}
           />
@@ -37,17 +37,17 @@ const MainTabScreen = () =>{
             options={{
               tabBarLabel: 'Updates',
               tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons name="bell" color={color} size={26} />
+                <Icons name="ios-notifications" color={color} size={26} />
               ),
             }}
           />
           <Tab.Screen
             name="Profile"
-            component={UserProfileScreen}
+            component={UserProfileStackScreen}
             options={{
               tabBarLabel: 'Profile',
               tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons name="account" color={color} size={26} />
+                <Icons name="ios-person" color={color} size={26} />
               ),
             }}
           />
@@ -57,7 +57,7 @@ const MainTabScreen = () =>{
             options={{
               tabBarLabel: 'Explore',
               tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons name="account" color={color} size={26} />
+                <Icons name="ios-aperture" color={color} size={26} />
               ),
             }}
           />
