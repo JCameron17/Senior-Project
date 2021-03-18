@@ -14,11 +14,7 @@ function App() {
   return (
     <NavigationContainer>
       <Drawer.Navigator drawerContent = {props => <DrawerContent {... props}/>}>
-        <Drawer.Screen name="Home" component={MainTabScreen} />
-        <Drawer.Screen name="UserProfile" component={MainTabScreen} />
-        <Drawer.Screen name="Messages" component={MainTabScreen} />
-        <Drawer.Screen name="Explore" component={MainTabScreen} />
-        <Drawer.Screen name="Settings" component={MainTabScreen} />
+        <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
       </Drawer.Navigator>
    </NavigationContainer> 
   );
@@ -27,4 +23,3 @@ function App() {
 export default App;
 
 
- /*This is a test */
