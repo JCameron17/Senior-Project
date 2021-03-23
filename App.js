@@ -8,6 +8,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import MainTabScreen from './screens/MainTab';
 import {DrawerContent} from './screens/DrawerContent';
+import RootStackScreen from './screens/RootStack'
 
 const Drawer = createDrawerNavigator();
 function App() {
