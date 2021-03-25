@@ -4,8 +4,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 
 import YMLogoScreen from './YMLogo';
-import SignInScreen from './SignIn';
-import SignUpScreen from './SignUp';
+import SignInScreen from './Signin';
+import SignUpScreen from './Signup';
 
 
 const RootStack = createStackNavigator();
