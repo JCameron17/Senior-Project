@@ -10,7 +10,6 @@ function UserProfileScreen()
       </View>
     );
 }
-
 const styles = StyleSheet.create({
     container:
     {

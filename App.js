@@ -15,16 +15,14 @@ function App() {
   return (
     <NavigationContainer>
       <RootStackScreen/>
-    {/*
-      <Drawer.Navigator drawerContent = {props => <DrawerContent {... props}/>}>
+    
+      {/* <Drawer.Navigator drawerContent = {props => <DrawerContent {... props}/>}>
         <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
-      </Drawer.Navigator>
-    */}
+      </Drawer.Navigator> */}
+    
    </NavigationContainer> 
     
   );
 }
 
 export default App;
-
-
