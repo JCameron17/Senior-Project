@@ -156,7 +156,7 @@ const MessagesStackScreen = ({navigation}) =>(
   
   </MessagesStack.Navigator>
 )
-/*
+
 const NotificationsStackScreen = ({navigation}) =>(
   <NotificationsStack.Navigator screenOptions=
   {
@@ -183,7 +183,7 @@ const NotificationsStackScreen = ({navigation}) =>(
     }/>
   
   </NotificationsStack.Navigator>
-) */
+)
 
 const UserProfileStackScreen = ({navigation}) =>(
   <UserProfileStack.Navigator screenOptions=
