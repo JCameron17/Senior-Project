@@ -12,7 +12,8 @@ import {
     StatusBar,
     Alert
 } from 'react-native';
-
+import {LinearGradient} from "expo-linear-gradient";
+import {MaterialIcons} from "react-native-vector-icons/MaterialIcons"
 
 const YMLogoScreen = () => 
 {
@@ -27,7 +28,23 @@ const YMLogoScreen = () =>
                 />
             </View>
             <View style={styles.footer}>
-                <Text> Footer</Text>
+                <Text style = {styles.title}>Stay connected with everyone</Text>
+                <Text style ={styles.text} > Signin with an account</Text>
+                <View style= {styles.button}>
+                    <TouchableOpacity onPress = {()=>alert('Click')}>
+                        <LinearGradient
+                            colors ={['green','green']}
+                            style = {styles.signIn}
+                        >
+                            <Text style = {styles.textSign}>Get Started</Text>
+                            {/* <MaterialIcons 
+                                name="navigate-next"
+                                color="#fff"
+                                size={20}
+                            /> */}
+                        </LinearGradient>
+                    </TouchableOpacity>
+                </View> 
             </View>
         </View>
     )
