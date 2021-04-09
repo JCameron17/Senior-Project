@@ -69,6 +69,17 @@ const MainTabScreen = () =>{
               ),
             }}
           />
+          <Tab.Screen
+            name="Notifications" //linked here 
+            component={NotificationsStackScreen}
+            options={{
+              tabBarLabel: 'Notifications',
+              tabBarColor: 'green',
+              tabBarIcon: ({ color }) => (
+                <Icon name="ios-notifications-outline" color={color} size={26} /> //need ios icon for notifs
+              ),
+            }}
+          />
         </Tab.Navigator>
     );
 }
