@@ -18,8 +18,35 @@ import {MaterialIcons} from "react-native-vector-icons/MaterialIcons";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 
+import * as Google from 'expo-google-app-auth';
+
+import firebase from 'firebase';
+
+import {firebaseConfig} from './config';
+
 const SignInScreen = ({navigation}) => 
 {
+
+    signInWithGoogleAsync = async () => 
+    {
+        try {
+          const result = await Google.logInAsync({
+            //androidClientId: YOUR_CLIENT_ID_HERE,
+            behavior: 'web',
+            iosClientId: '481209506884-5t2ekj65irrj3m21jj6phsncjrpt0bn8.apps.googleusercontent.com',
+            scopes: ['profile', 'email'],
+          });
+      
+          if (result.type === 'success') {
+            return result.accessToken;
+          } else {
+            return { cancelled: true };
+          }
+        } catch (e) {
+          return { error: true };
+        }
+    }
+
     const [data,setData] = React.useState({
         email: '',
         password: '',
@@ -132,15 +159,20 @@ const SignInScreen = ({navigation}) =>
                 </View>
                 
                 <View>
-                    <LinearGradient
-                        colors = {['green','green']}
-                        style = {styles.signIn}
+                    <TouchableOpacity>
+                        <LinearGradient
+                            onPress = {() => this.signInWithGoogleAsync()}
+                            colors = {['green','green']}
+                            style = {styles.signIn}
 
-                    >
-                        <Text style = {[styles.textSign,{
-                            color:'white'}]}>Sign In 
-                        </Text>
-                    </LinearGradient>
+                        >
+                            <Text style = {[styles.textSign,{
+                                color:'white'}]}>Sign In 
+                            </Text>
+                        </LinearGradient>
+
+                    </TouchableOpacity>
+                    
 
                     <TouchableOpacity
                         onPress = {() => navigation.navigate('SignUpScreen')}

@@ -28,8 +28,12 @@ import React from 'react';
 import { StyleSheet,Component, Text,TouchableWithoutFeedback, View,Image,SafeAreaView, Button, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import * as Google from 'expo-google-app-auth';
 
 import firebase from '@react-native-firebase/app';
+
+
+
 firebase.initializeApp(firebaseConfig)
 
 import MainTabScreen from './screens/MainTab';
