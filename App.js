@@ -39,7 +39,7 @@ firebase.initializeApp(firebaseConfig)
 import MainTabScreen from './screens/MainTab';
 import {DrawerContent} from './screens/DrawerContent';
 import RootStackScreen from './screens/RootStack'
-import { firebaseConfig } from './config';
+import { firebaseConfig } from './screens/config';
 
 const Drawer = createDrawerNavigator();
 function App() {
