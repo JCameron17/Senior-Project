@@ -1,4 +1,4 @@
-var firebaseConfig = {
+export const firebaseConfig = {
     apiKey: "AIzaSyBTaEPxAXU85mYnifVklDJcHFPBjBiG9c0",
     authDomain: "young-money-b2c99.firebaseapp.com",
     projectId: "young-money-b2c99",
