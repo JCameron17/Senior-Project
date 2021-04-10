@@ -7,7 +7,6 @@ import YMLogoScreen from './YMLogo';
 import SignInScreen from './Signin';
 import SignUpScreen from './Signup';
 
-
 const RootStack = createStackNavigator();
 
 const RootStackScreen = ({navigation}) => (
