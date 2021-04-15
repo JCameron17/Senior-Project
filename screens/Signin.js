@@ -18,34 +18,40 @@ import {MaterialIcons} from "react-native-vector-icons/MaterialIcons";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 
-import * as Google from 'expo-google-app-auth';
+import { AuthContext } from '../components/context';
 
-import firebase from 'firebase';
 
-import {firebaseConfig} from './config';
+// import * as Google from 'expo-google-app-auth';
+
+// import firebase from 'firebase';
+
+// import {firebaseConfig} from './config';
 
 const SignInScreen = ({navigation}) => 
 {
 
-    signInWithGoogleAsync = async () => 
-    {
-        try {
-          const result = await Google.logInAsync({
-            //androidClientId: YOUR_CLIENT_ID_HERE,
-            behavior: 'web',
-            iosClientId: '481209506884-5t2ekj65irrj3m21jj6phsncjrpt0bn8.apps.googleusercontent.com',
-            scopes: ['profile', 'email'],
-          });
+    // async function signInWithGoogleAsync () {
+    //     try {
+    //       const result = await Google.logInAsync({
+    //         //androidClientId: YOUR_CLIENT_ID_HERE,
+    //         behavior: 'web',
+    //         iosClientId: '481209506884-5t2ekj65irrj3m21jj6phsncjrpt0bn8.apps.googleusercontent.com',
+    //         scopes: ['profile', 'email'],
+    //       });
       
-          if (result.type === 'success') {
-            return result.accessToken;
-          } else {
-            return { cancelled: true };
-          }
-        } catch (e) {
-          return { error: true };
-        }
-    }
+    //       if (result.type === 'success') {
+    //         return result.accessToken;
+    //       } else {
+    //         return { cancelled: true };
+    //       }
+    //     } catch (e) {
+    //       return { error: true };
+    //     }
+    // }
+
+
+
+    const {signIn} = React.useContext(AuthContext);
 
     const [data,setData] = React.useState({
         email: '',
@@ -157,11 +163,17 @@ const SignInScreen = ({navigation}) =>
                         }
                     </TouchableOpacity>
                 </View>
+
+                <TouchableOpacity>
+                    <Text style = {{color:'black',marginTop:15}}> Forgot Password ? </Text>
+                </TouchableOpacity>
                 
-                <View>
-                    <TouchableOpacity>
+                <View >
+                    <TouchableOpacity
+                        style = {styles.signIn}
+                        onPress={() => {signIn()}}
+                    >    
                         <LinearGradient
-                            onPress = {() => this.signInWithGoogleAsync()}
                             colors = {['green','green']}
                             style = {styles.signIn}
 
@@ -170,7 +182,6 @@ const SignInScreen = ({navigation}) =>
                                 color:'white'}]}>Sign In 
                             </Text>
                         </LinearGradient>
-
                     </TouchableOpacity>
                     
 
