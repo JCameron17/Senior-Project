@@ -42,6 +42,7 @@ import RootStackScreen from './screens/RootStack'
 import { useEffect } from 'react';
 //import { firebaseConfig } from './screens/config';
 import { AuthContext } from './components/context';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
  
 
@@ -96,7 +97,7 @@ function App() {
       // setUserToken('tony');
       // setIsLoading(false);
       let userToken;
-      userName = null;
+      userToken = null;
       if (userName == 'user' && password == 'pass'){
         userToken = 'lexi';
       }
