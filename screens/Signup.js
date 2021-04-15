@@ -24,7 +24,7 @@ const SignInScreen = ({navigation}) =>
 
 
     const [data,setData] = React.useState({
-        email: '',
+        username: '',
         password: '',
         confirm_password: '',
         check_textInputChange: false,
@@ -39,14 +39,14 @@ const SignInScreen = ({navigation}) =>
         {
              setData({
                  ...data,
-                 email:val,
+                 username:val,
                  check_textInputChange:true
              })
          }else
          {
             setData({
                 ...data,
-                email:val,
+                username:val,
                 check_textInputChange:false
             })
          }

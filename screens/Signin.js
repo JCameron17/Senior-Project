@@ -54,7 +54,7 @@ const SignInScreen = ({navigation}) =>
     const {signIn} = React.useContext(AuthContext);
 
     const [data,setData] = React.useState({
-        email: '',
+        username: '',
         password: '',
         check_textInputChange: false,
         secureTextEntry: true
@@ -66,14 +66,14 @@ const SignInScreen = ({navigation}) =>
         {
              setData({
                  ...data,
-                 email:val,
+                 username:val,
                  check_textInputChange:true
              })
          }else
          {
             setData({
                 ...data,
-                email:val,
+                username:val,
                 check_textInputChange:false
             })
          }
@@ -100,6 +100,10 @@ const SignInScreen = ({navigation}) =>
             ...data,
             secureTextEntry: !data.secureTextEntry
         });
+    }
+
+    const loginHandle = (username,password) => {
+        signIn(username,password);
     }
   
     
@@ -171,7 +175,7 @@ const SignInScreen = ({navigation}) =>
                 <View >
                     <TouchableOpacity
                         style = {styles.signIn}
-                        onPress={() => {signIn()}}
+                        onPress={() => {loginHandle(data.username,data.password)}}
                     >    
                         <LinearGradient
                             colors = {['green','green']}
