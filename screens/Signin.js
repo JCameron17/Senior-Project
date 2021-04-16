@@ -51,7 +51,6 @@ const SignInScreen = ({navigation}) =>
 
 
 
-    const {signIn} = React.useContext(AuthContext);
 
     const [data,setData] = React.useState({
         username: '',
@@ -60,6 +59,9 @@ const SignInScreen = ({navigation}) =>
         secureTextEntry: true
 
     });
+
+    const {signIn} = React.useContext(AuthContext);
+
 
      const textInputChange = (val) => {
          if (val.length != 0)
@@ -180,7 +182,6 @@ const SignInScreen = ({navigation}) =>
                         <LinearGradient
                             colors = {['green','green']}
                             style = {styles.signIn}
-
                         >
                             <Text style = {[styles.textSign,{
                                 color:'white'}]}>Sign In 

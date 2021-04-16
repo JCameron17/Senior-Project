@@ -87,31 +87,46 @@ function App() {
   const [loginState, dispatch] = React.useReducer(loginReducer, initialLoginState);
 
   const authContext = React.useMemo(() => ({
-    signIn: (userName,password) =>{
+    signIn: async(userName,password) =>{
       // setUserToken('tony');
       // setIsLoading(false);
       let userToken;
       userToken = null;
       if (userName == 'user' && password == 'pass'){
         userToken = 'lexi';
+        try {
+          await AsyncStorage.setItem('userToken',userToken)
+        } catch(e){
+          console.log(e);
+        }
       }
-      dispatch({type:'LOGIN,',id:userName, token:userToken});
+      dispatch({ type:'LOGIN', id: userName, token:userToken});
     },
-    signOut: () => {
+    signOut: async() => {
       // setUserToken(null);
       // setIsLoading(false);
+      try {
+        await AsyncStorage.removeItem('userToken')
+      } catch(e){
+        console.log(e);
+      }
       dispatch({type:'LOGOUT'});
     },
     signUp: () => {
-      setUserToken('tony');
-      setIsLoading(false);
     },
   }),[])
 
   useEffect(() => {
-    setTimeout(() => {
+    setTimeout(async() => {
+      let userToken;
+      userToken = null;
+      try {
+        await AsyncStorage.getItem('userToken')
+      } catch(e){
+        console.log(e);
+      }
      // setIsLoading(false);
-     dispatch({type:'RETRIEVE_TOKEN',token:'mario'});
+     dispatch({type:'RETRIEVE_TOKEN',token:userToken});
     },1000);
   },[]);
 
