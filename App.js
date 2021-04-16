@@ -92,8 +92,7 @@ function App() {
       const userToken = String(foundUser[0].userToken);
       const userName = foundUser[0].username;
 
-      try 
-      {
+      try {
         await AsyncStorage.setItem('userToken',userToken)
       } catch(e){
         console.log(e);
@@ -119,7 +118,7 @@ function App() {
       let userToken;
       userToken = null;
       try {
-        await AsyncStorage.getItem('userToken')
+        userToken = await AsyncStorage.getItem('userToken');
       } catch(e){
         console.log(e);
       }

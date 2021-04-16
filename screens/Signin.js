@@ -53,30 +53,27 @@ const SignInScreen = ({navigation}) =>
 
 
 
-    const [data,setData] = React.useState({
+    const [data, setData] = React.useState({
         username: '',
         password: '',
         check_textInputChange: false,
         secureTextEntry: true,
         isValidUser: true,
-        isValidPassword: true
+        isValidPassword: true,
     });
 
-    const {signIn} = React.useContext(AuthContext);
+    const { signIn } = React.useContext(AuthContext);
 
 
     const textInputChange = (val) => {
-        if( val.trim().length >= 4 ) 
-        {
+        if( val.trim().length >= 4 ) {
             setData({
                 ...data,
                 username: val,
                 check_textInputChange: true,
                 isValidUser: true
             });
-        } 
-        else 
-        {
+        } else {
             setData({
                 ...data,
                 username: val,
@@ -86,17 +83,14 @@ const SignInScreen = ({navigation}) =>
         }
     }
 
-     const handlePasswordChange = (val) => {
-        if( val.trim().length >= 8 ) 
-        {
+    const handlePasswordChange = (val) => {
+        if( val.trim().length >= 8 ) {
             setData({
                 ...data,
                 password: val,
                 isValidPassword: true
             });
-        } 
-        else 
-        {
+        } else {
             setData({
                 ...data,
                 password: val,
@@ -170,7 +164,7 @@ const SignInScreen = ({navigation}) =>
                         autoCapitalize = "none"
                         onChangeText = {(val) => textInputChange(val)}
                         onEndEditing={(e)=>handleValidUser(e.nativeEvent.text)}
-                        />
+                    />
                     {data.check_textInputChange?
                     <Feather
                         name = "check-circle"
@@ -201,7 +195,6 @@ const SignInScreen = ({navigation}) =>
                         style= {styles.textInput}
                         autoCapitalize = "none"
                         onChangeText = {(val) => handlePasswordChange(val)}
-
                     />
                     <TouchableOpacity
                     onPress={updateSecureTextEntry}
