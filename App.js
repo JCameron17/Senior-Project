@@ -28,13 +28,7 @@ import React from 'react';
 import { StyleSheet,Component, Text,TouchableWithoutFeedback, View,Image,SafeAreaView, Button, ScrollView, ActivityIndicator } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-// import * as Google from 'expo-google-app-auth';
 
-// import firebase from '@react-native-firebase/app';
-
-
-
-//firebase.initializeApp(firebaseConfig)
 
 import MainTabScreen from './screens/MainTab';
 import {DrawerContent} from './screens/DrawerContent';
@@ -121,10 +115,12 @@ function App() {
     },1000);
   },[]);
 
-  if(loginState.isLoading ) {
+
+  if (loginState.isLoading == true)
+  {
     return(
-      <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-        <ActivityIndicator size="large"/>
+      <View style = {{flex:1,justifyContent:'center',alignItems:'center'}}>
+        <ActivityIndicator size = "large"/>
       </View>
     );
   }
