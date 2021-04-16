@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import YMLogoScreen from './YMLogo';
 import SignInScreen from './Signin';
 import SignUpScreen from './Signup';
+import MainTabScreen from './MainTab'
 
 
 const RootStack = createStackNavigator();
