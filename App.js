@@ -43,8 +43,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const Drawer = createDrawerNavigator();
 
 function App() {
-  // const [isLoading, setIsLoading] = React.useState(true);
-  // const [userToken, setUserToken] = React.useState(null); 
+  
 
   const initialLoginState = {
     isLoading: true,
@@ -87,24 +86,23 @@ function App() {
   const [loginState, dispatch] = React.useReducer(loginReducer, initialLoginState);
 
   const authContext = React.useMemo(() => ({
-    signIn: async(userName,password) =>{
-      // setUserToken('tony');
-      // setIsLoading(false);
-      let userToken;
-      userToken = null;
-      if (userName == 'user' && password == 'pass'){
-        userToken = 'lexi';
-        try {
-          await AsyncStorage.setItem('userToken',userToken)
-        } catch(e){
-          console.log(e);
-        }
+    signIn: async(foundUser) =>{
+      
+
+      const userToken = String(foundUser[0].userToken);
+      const userName = foundUser[0].username;
+
+      try 
+      {
+        await AsyncStorage.setItem('userToken',userToken)
+      } catch(e){
+        console.log(e);
       }
+      
       dispatch({ type:'LOGIN', id: userName, token:userToken});
     },
     signOut: async() => {
-      // setUserToken(null);
-      // setIsLoading(false);
+      
       try {
         await AsyncStorage.removeItem('userToken')
       } catch(e){
