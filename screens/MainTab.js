@@ -9,6 +9,7 @@ import UserProfileScreen from './UserProfile';
 import ExploreScreen from './Explore';
 import NotificationsScreen from './Notifications';
 import MessagesScreen from './Messages';
+import ChatScreen from './ChatScreen';
 
 const HomeStack = createStackNavigator();
 const UserProfileStack = createStackNavigator();
@@ -18,7 +19,15 @@ const ExploreStack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
 const MainTabScreen = () =>{
-
+  const getTabBarVisibility = (route) => {
+    const routeName = route.state 
+      ? route.state.routes[route.state.index].name
+      : '';
+    if( routeName === 'ChatScreen'){
+      return false;
+    }
+    return true;
+  };
     return (
         <Tab.Navigator
           initialRouteName="Home"
@@ -50,13 +59,18 @@ const MainTabScreen = () =>{
           <Tab.Screen
             name="Messages"
             component={MessagesStackScreen}
-            options={{
+            options={({route}) => ({
+              tabBarVisible: getTabBarVisibility(route),
               tabBarLabel: 'Messages',
               tabBarColor: 'green',
               tabBarIcon: ({ color }) => (
-                <Icon name="ios-chatbubbles" color={color} size={26} />
+                <Icon 
+                  name="ios-chatbubbles" 
+                  color={color} 
+                  size={26} 
+                />
               ),
-            }}
+            })}
           />
           <Tab.Screen
             name="Profile"
@@ -153,9 +167,16 @@ const MessagesStackScreen = ({navigation}) =>(
         )
       }
     }/>
-  
+    <MessagesStack.Screen 
+      name="Chat" 
+      component={ChatScreen} 
+      options={({route}) => ({
+        title: route.params.userName,
+        headerBackTitleVisible: false,
+      })}
+    />
   </MessagesStack.Navigator>
-)
+);
 /*
 const NotificationsStackScreen = ({navigation}) =>(
   <NotificationsStack.Navigator screenOptions=

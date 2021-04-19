@@ -65,14 +65,14 @@ const MessageID = [
 const Messages = ({navigation}) => {
     return (
       <Container style={styles.container}>
-        <FlatList
+        <FlatList 
           data={MessageID}
           keyExtractor={item=>item.id}
           renderItem={({item}) => (
-            <Card onPress = {() => navigation.navigate('Chat', {userName: item.userName})}>
+            <Card onPress={() => navigation.navigate('Chat', {userName: item.userName})}>
               <UserInfo>
                 <UserImgWrapper>
-                  <UserImg source ={item.userImg} />
+                  <UserImg source={item.userImg} />
                 </UserImgWrapper>
                 <TextSection>
                   <UserInfoText>
@@ -83,7 +83,7 @@ const Messages = ({navigation}) => {
                 </TextSection>
               </UserInfo>
             </Card>
-            )}
+          )}
         />
       </Container>
     );
