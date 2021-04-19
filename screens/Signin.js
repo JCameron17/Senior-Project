@@ -148,7 +148,7 @@ const SignInScreen = ({navigation}) =>
     return(
         <View style={styles.container}>
             <View style = {styles.header}>
-                <Text style = {styles.text_header}>Welcome !</Text>
+                <Text style = {styles.text_header}>Login</Text>
             </View>
             <View style = {styles.footer}>
                 <Text style = {styles.text_footer}>Username</Text>
@@ -288,7 +288,7 @@ const styles = StyleSheet.create({
     text_header: {
         color: '#fff',
         fontWeight: 'bold',
-        fontSize: 30
+        fontSize: 50
     },
     text_footer: {
         color: '#05375a',
