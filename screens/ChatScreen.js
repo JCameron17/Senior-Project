@@ -9,9 +9,9 @@ const ChatScreen = () => {
 
     useEffect(() => {
         setMessages([
-            {
+            /*{
                 _id: 1,
-                text: 'Hello developer',
+                text: 'Yes, let\'s discuss',
                 createdAt: new Date(),
                 user: {
                     _id: 2,
@@ -19,12 +19,13 @@ const ChatScreen = () => {
                     avatar: 'https://placeimg.com/640/480/any',
                 },
             },
+            */
             {
-                _id: 2,
-                text: 'Hello world',
+                _id: 1,
+                text: 'Hi, are you ready to review some financial plans?',
                 createdAt: new Date(),
                 user: {
-                    _id: 1,
+                    _id: 2,
                     name: 'React Native',
                     avatar: 'https://placeimg.com/640/480/any',
                 },

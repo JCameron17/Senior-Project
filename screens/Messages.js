@@ -21,11 +21,11 @@ const Separator = () => (
 const MessageID = [
   {
     id: '1',
-    userName: 'Anthony Gordon',
+    userName: 'Christy Alex (Financial Expert)',
     userImg: require('../assets/profile.png'),
     messageTime: '4 mins ago',
     messageText:
-      'Hey there, this is my test for a post of my social app in React Native.',
+      'Yes, let\'s discuss',
   },
   {
     id: '2',
@@ -33,7 +33,7 @@ const MessageID = [
     userImg: require('../assets/profile.png'),
     messageTime: '2 hours ago',
     messageText:
-      'Hey there, this is my test for a post of my social app in React Native.',
+      'Okay spunds great!',
   },
   {
     id: '3',
@@ -41,7 +41,7 @@ const MessageID = [
     userImg: require('../assets/profile.png'),
     messageTime: '1 hours ago',
     messageText:
-      'Hey there, this is my test for a post of my social app in React Native.',
+      'I want to learn how to save my money, all I know is how to spend it',
   },
   {
     id: '4',
@@ -49,15 +49,15 @@ const MessageID = [
     userImg: require('../assets/profile.png'),
     messageTime: '1 day ago',
     messageText:
-      'Hey there, this is my test for a post of my social app in React Native.',
+      'Absolutely, I\'m ready to make some money!',
   },
   {
     id: '5',
-    userName: 'Christy Alex',
+    userName: 'Anthony Gordon',
     userImg: require('../assets/profile.png'),
     messageTime: '2 days ago',
     messageText:
-      'Hey there, this is my test for a post of my social app in React Native.',
+      'Hey there, let\'s discuss some investing tips!',
   },
 ];
 
