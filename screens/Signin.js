@@ -18,35 +18,72 @@ import {MaterialIcons} from "react-native-vector-icons/MaterialIcons";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 
+import { AuthContext } from '../components/context';
+
+import Users from '../model/users';
+
+// import * as Google from 'expo-google-app-auth';
+
+// import firebase from 'firebase';
+
+// import {firebaseConfig} from './config';
+
 const SignInScreen = ({navigation}) => 
 {
-    const [data,setData] = React.useState({
-        email: '',
+
+    // async function signInWithGoogleAsync () {
+    //     try {
+    //       const result = await Google.logInAsync({
+    //         //androidClientId: YOUR_CLIENT_ID_HERE,
+    //         behavior: 'web',
+    //         iosClientId: '481209506884-5t2ekj65irrj3m21jj6phsncjrpt0bn8.apps.googleusercontent.com',
+    //         scopes: ['profile', 'email'],
+    //       });
+      
+    //       if (result.type === 'success') {
+    //         return result.accessToken;
+    //       } else {
+    //         return { cancelled: true };
+    //       }
+    //     } catch (e) {
+    //       return { error: true };
+    //     }
+    // }
+
+
+
+
+    const [data, setData] = React.useState({
+        username: '',
         password: '',
         check_textInputChange: false,
-        secureTextEntry: true
-
+        secureTextEntry: true,
+        isValidUser: true,
+        isValidPassword: true,
     });
 
-     const textInputChange = (val) => {
-         if (val.length != 0)
-        {
-             setData({
-                 ...data,
-                 email:val,
-                 check_textInputChange:true
-             })
-         }else
-         {
+    const { signIn } = React.useContext(AuthContext);
+
+
+    const textInputChange = (val) => {
+        if( val.trim().length >= 4 ) {
             setData({
                 ...data,
-                email:val,
-                check_textInputChange:false
-            })
-         }
-     }
+                username: val,
+                check_textInputChange: true,
+                isValidUser: true
+            });
+        } else {
+            setData({
+                ...data,
+                username: val,
+                check_textInputChange: false,
+                isValidUser: false
+            });
+        }
+    }
 
-     const handlePasswordChange = (val) => {
+    const handlePasswordChange = (val) => {
         if( val.trim().length >= 8 ) {
             setData({
                 ...data,
@@ -68,15 +105,53 @@ const SignInScreen = ({navigation}) =>
             secureTextEntry: !data.secureTextEntry
         });
     }
+
+
+    const handleValidUser = (val) => {
+        if( val.trim().length >= 4 ) {
+            setData({
+                ...data,
+                isValidUser: true
+            });
+        } else {
+            setData({
+                ...data,
+                isValidUser: false
+            });
+        }
+    }
+
+
+    const loginHandle = (userName, password) => {
+
+        const foundUser = Users.filter( item => {
+            return userName == item.username && password == item.password;
+        } );
+
+        if ( data.username.length == 0 || data.password.length == 0 ) {
+            Alert.alert('Wrong Input!', 'Username or password field cannot be empty.', [
+                {text: 'Okay'}
+            ]);
+            return;
+        }
+
+        if ( foundUser.length == 0 ) {
+            Alert.alert('Invalid User!', 'Username or password is incorrect.', [
+                {text: 'Okay'}
+            ]);
+            return;
+        }
+        signIn(foundUser);
+    }
   
     
     return(
         <View style={styles.container}>
             <View style = {styles.header}>
-                <Text style = {styles.text_header}>Welcome !</Text>
+                <Text style = {styles.text_header}>Login</Text>
             </View>
             <View style = {styles.footer}>
-                <Text style = {styles.text_footer}>Email</Text>
+                <Text style = {styles.text_footer}>Username</Text>
                 <View style = {styles.action}>
                     <FontAwesome
                         name = "user-o"
@@ -84,10 +159,11 @@ const SignInScreen = ({navigation}) =>
                         size= {20}
                     />
                     <TextInput
-                        placeholder= "Your Email"
+                        placeholder= "Your Username"
                         style= {styles.textInput}
                         autoCapitalize = "none"
                         onChangeText = {(val) => textInputChange(val)}
+                        onEndEditing={(e)=>handleValidUser(e.nativeEvent.text)}
                     />
                     {data.check_textInputChange?
                     <Feather
@@ -97,6 +173,15 @@ const SignInScreen = ({navigation}) =>
                     />
                     :null}
                 </View>
+
+
+                { data.isValidUser ? null : 
+                    <View>
+                        <Text style={styles.errorMsg}>Username must be 4 characters long.</Text>
+                    </View>
+                }
+
+
                 <Text style={[styles.text_footer, {color:'black',marginTop: 35}]}>Password</Text>
                 <View style = {styles.action}>
                     <FontAwesome
@@ -110,7 +195,6 @@ const SignInScreen = ({navigation}) =>
                         style= {styles.textInput}
                         autoCapitalize = "none"
                         onChangeText = {(val) => handlePasswordChange(val)}
-
                     />
                     <TouchableOpacity
                     onPress={updateSecureTextEntry}
@@ -131,16 +215,33 @@ const SignInScreen = ({navigation}) =>
                     </TouchableOpacity>
                 </View>
                 
-                <View>
-                    <LinearGradient
-                        colors = {['green','green']}
-                        style = {styles.signIn}
+                { data.isValidPassword ? null : 
+                    <View>
+                        <Text style={styles.errorMsg}>Password must be 8 characters long.</Text>
+                    </View>
+                }
+                
 
-                    >
-                        <Text style = {[styles.textSign,{
-                            color:'white'}]}>Sign In 
-                        </Text>
-                    </LinearGradient>
+
+                <TouchableOpacity>
+                    <Text style = {{color:'blue',marginTop:15}}> Forgot Password ? </Text>
+                </TouchableOpacity>
+                
+                <View >
+                    <TouchableOpacity
+                        style = {styles.signIn}
+                        onPress={() => {loginHandle( data.username, data.password )}}
+                        >    
+                        <LinearGradient
+                            colors = {['green','green']}
+                            style = {styles.signIn}
+                        >
+                            <Text style = {[styles.textSign,{
+                                color:'white'}]}>Sign In 
+                            </Text>
+                        </LinearGradient>
+                    </TouchableOpacity>
+                    
 
                     <TouchableOpacity
                         onPress = {() => navigation.navigate('SignUpScreen')}
@@ -187,7 +288,7 @@ const styles = StyleSheet.create({
     text_header: {
         color: '#fff',
         fontWeight: 'bold',
-        fontSize: 30
+        fontSize: 50
     },
     text_footer: {
         color: '#05375a',

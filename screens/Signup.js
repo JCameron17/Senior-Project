@@ -16,10 +16,15 @@ import {MaterialIcons} from "react-native-vector-icons/MaterialIcons";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 
+import { AuthContext } from '../components/context';
+
 const SignInScreen = ({navigation}) => 
 {
+    const {signUp} = React.useContext(AuthContext);
+
+
     const [data,setData] = React.useState({
-        email: '',
+        username: '',
         password: '',
         confirm_password: '',
         check_textInputChange: false,
@@ -34,14 +39,14 @@ const SignInScreen = ({navigation}) =>
         {
              setData({
                  ...data,
-                 email:val,
+                 username:val,
                  check_textInputChange:true
              })
          }else
          {
             setData({
                 ...data,
-                email:val,
+                username:val,
                 check_textInputChange:false
             })
          }
@@ -182,15 +187,20 @@ const SignInScreen = ({navigation}) =>
                 </View>
 
                 <View>
-                    <LinearGradient
-                        colors = {['green','green']}
+                    <TouchableOpacity
                         style = {styles.signIn}
-
+                        onPress={() => {signUp()}}
                     >
-                        <Text style = {[styles.textSign,{
+                        <LinearGradient
+                            colors = {['green','green']}
+                            style = {styles.signIn}
+
+                        >
+                            <Text style = {[styles.textSign,{
                             color:'white'}]}>Sign Up 
-                        </Text>
-                    </LinearGradient>
+                            </Text>
+                        </LinearGradient>
+                    </TouchableOpacity>
 
                     <TouchableOpacity
                         onPress = {() => navigation.goBack()}

@@ -6,6 +6,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 import YMLogoScreen from './YMLogo';
 import SignInScreen from './Signin';
 import SignUpScreen from './Signup';
+<<<<<<< HEAD
+=======
+import MainTabScreen from './MainTab'
+
+>>>>>>> 81813acca534c04c84dd198acbada5c89332fccf
 
 const RootStack = createStackNavigator();
 
