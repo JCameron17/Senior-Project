@@ -20,4 +20,11 @@ export default Users = [
         password: 'testpass', 
         userToken: 'testtoken'
     },
+    {
+        id: 3, 
+        email: 'testuser@email.com',
+        username: 'testuser', 
+        password: 'testpass', 
+        userToken: 'testtoken'
+    }
 ];

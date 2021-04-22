@@ -29,7 +29,7 @@ const YMLogoScreen = ({navigation}) =>
                 />
             </View>
             <View style={styles.footer}>
-                <Text style = {styles.title}>Stay connected with everyone</Text>
+                <Text style = {styles.title}>Building wealth for the next generation ! </Text>
                 <Text style ={styles.text} > Signin with an account</Text>
                 <View style= {styles.button}>
                     <TouchableOpacity onPress = {()=>navigation.navigate('SignInScreen')}>
